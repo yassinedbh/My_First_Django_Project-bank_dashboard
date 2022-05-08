@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <div class="card mt-5">
+        <div class="card-header">
+            {{ client.code |title }}
+        </div>
+        <div class="card-body">
+
+                <ul>
+                    <li>Nom : {{client.nom|upper}}</li>
+                    <li>Prenom : {{client.prenom}}</li>
+                </ul>
+        </div>
+    </div>
+</body>
+</html>

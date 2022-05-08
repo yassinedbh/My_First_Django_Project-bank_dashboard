@@ -1,0 +1,114 @@
+{% extends 'squelette.html'%}
+{%block content %}
+<!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Gestion Opération</h1>
+                    <p class="mb-4">Gerer vos opérations en une seul clique </p>
+
+                    <br>
+                     <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Ajouter une opération</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <form method="POST" action="{%url 'operation_forms_add'%}">
+                                                {% csrf_token %}
+                                                {{ context2.items_forms.as_p }}
+                                            <button type="submit" class="btn btn-primary mt-3">Ajouter</button>
+                                        </form>
+                                    </div>
+                                </div>
+                     </div>
+
+                    <!-- DataTales -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Liste Des Opérations</h6>
+                        </div>
+                         <!-- Divider -->
+                                 <br>
+                         <!-- Topbar Search -->
+                            <form method="post" action="{% url 'operation_search' %}"
+                    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                         {% csrf_token %}
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for a client ..."
+                            aria-label="Search" aria-describedby="basic-addon2" name="nom">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTabl" width="100%" cellspacing="0" style="text-align:center;">
+                                    <thead>
+                                        <tr>
+                                            <th>Num Operation</th>
+                                            <th>Date Operation</th>
+                                            <th>Montant</th>
+                                            <th>Type</th>
+                                            <th>Compte_num</th>
+                                            <th>Propriétaire</th>
+                                            <th>Modifier</th>
+                                            <th>Supprimer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for m in context.items %}
+                                        <tr>
+                                           <td>{{m.numeroOperation}}</td>
+                                            <td>{{m.dateOperation}}</td>
+                                            <td>{{m.montant}}</td>
+                                            <td>{{m.type}}</td>
+                                            <td>{{m.compte.numero}}</td>
+                                            <td>{{m.compte.client.nom}}</td>
+                                            <td> <a href="#" class="btn btn-secondary btn-icon-split">
+                                                <span class="text">Modifier</span>
+                                            </a></td>
+                                            <td><a href="/operation/{{m.numeroOperation}}" class="btn btn-danger btn-icon-split" onclick="return confirm('voulez vous vraiment supprimer cette operation ?');">
+                                                <span class="text">Supprimer</span>
+                                            </a></td>
+                                        </tr>
+                                         {%endfor%}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <br>
+                            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                  {% if context.items.has_previous %}
+                    <li class="page-item">
+                      <a class="page-link" href="?page={{ context.items.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                  {% endif %}
+                   {% if context.items.number != null %}
+                <li class="page-item active"><a class="page-link" href="?page={{ context.items.number }}">{{ context.items.number }}</a></li>
+                  {% endif %}
+                  {% if context.items.has_next %}
+                    <li class="page-item">
+                      <a class="page-link" href="?page={{ context.items.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  {% endif %}
+              </ul>
+            </nav>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+{% endblock %}
+
+

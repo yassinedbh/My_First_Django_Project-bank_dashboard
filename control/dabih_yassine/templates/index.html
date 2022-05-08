@@ -1,0 +1,138 @@
+{% extends 'squelette.html'%}
+{%block content %}
+     {% load static %}
+    <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    </div>
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- Total des operations Card  -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Total des operations</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ context.total_operation }}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-university fa-2x text-gray-300"></i>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total des clients Card -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Total des clients</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ context2.total_client }}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total des clients Card -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Total des Versements</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ context4.total_versement }}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-money-check-alt  fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Total des Retraits</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ context3.total_retrait  }}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-money-bill-alt fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Content Column -->
+
+                        <div class="col-lg-6 mb-4">
+
+                            <!-- Illustrations -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Le rôle de la banque
+                                    </h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                                            src="{% static 'image/banque-directe-740x350.jpg' %}">
+                                    </div>
+                                    <br>
+                                    <p>L’escompte de traite vous permet de disposer d’une créance immédiatement. Le principe est simple mais toutes les banques ne le pratiquent pas : il s’agit de de remettre une traite à votre établissement bancaire contre financement. Attention car si la créance est impayée à son échéance, vous devrez engager la procédure de recouvrement.
+                                        </p>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Approach -->
+                        <div class="col-lg-6 mb-4">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Histoire des banques</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                                        src="{% static 'image/bale-3.jpg' %}">
+                                </div>
+                                <p>C’est en Europe que les premières banques apparaissent. Nous sommes au XII et XIIIème siècle, les grands banquiers sont alors Italiens (les Lombards) et Juifs (espagnoles ou d’Europe de l’Est). La France, fille aînée de l’Eglise, est encore peu ouverte au monde de l’argent. Néanmoins les rues des Lombards, existant dans un certain nombre de villes françaises, comme ici à Paris, témoignent de la présence de ces premiers banquiers.</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+{% endblock %}
+
+
