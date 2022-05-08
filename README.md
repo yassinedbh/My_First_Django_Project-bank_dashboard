@@ -1,4 +1,4 @@
-# My_First_Django_Project-bank-dashboard
+# My_First_Django_Project\bank-dashboard
 first Python project with Django and Sqlite that allows us to manage operations, accounts and customers of a bank .
 
 ![image](https://user-images.githubusercontent.com/86926143/167309977-cbb622ed-9a49-4e0f-82df-aca3f23a29af.png)
